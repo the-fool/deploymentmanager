@@ -1,0 +1,12 @@
+imports:
+    - path: ../templates/project.py
+      name: project.py
+
+resources:
+    - name: widgetworld-automatic
+      type: project.py
+      properties:
+        parent_node: 
+            type: organization
+            id: 279306703376
+        billing_account_id: 010FAB-0BB731-1EBA39
