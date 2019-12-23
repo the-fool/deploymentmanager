@@ -1,0 +1,38 @@
+imports:
+    - path: ../templates/project.py
+      name: project.py
+
+resources:
+    - name: widgetworld-auto-1
+      type: project.py
+      properties:
+        parent_node: 
+            type: organization
+            id: 279306703376
+        billing_account_id: 010FAB-0BB731-1EBA39
+
+    - name: widgetworld-auto-2
+      type: project.py
+      properties:
+        parent_node: 
+            type: organization
+            id: 279306703376
+        billing_account_id: 010FAB-0BB731-1EBA39
+
+    - name: widgetworld-auto-4
+      type: project.py
+      properties:
+        parent_node: 
+            type: organization
+            id: 279306703376
+        billing_account_id: 010FAB-0BB731-1EBA39
+
+    - name: widgetworld-auto-5
+      type: project.py
+      properties:
+        parent_node: 
+            type: folder
+            id: 55956202536
+            # type: organization
+            # id: 279306703376
+        billing_account_id: 010FAB-0BB731-1EBA39

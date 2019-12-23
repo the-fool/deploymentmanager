@@ -1,0 +1,12 @@
+imports:
+    - path: ../templates/app.py
+      name: app.py
+
+resources:
+    - name: ww-app-four
+      type: app.py
+      properties:
+        parent_node: 
+            type: organization
+            id: 279306703376
+        billing_account_id: 010FAB-0BB731-1EBA39
