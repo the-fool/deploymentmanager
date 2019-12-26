@@ -4,17 +4,12 @@ info:
 
 required:
     - billing_account_id
-    - parent_node
+    - root_node
+    - dev_node
+    - prd_node
     
 properties:
-    #project_name:
-    #    type: string
-    
-    #project_id:
-    #    type: string
-    #    pattern: ^[a-z][a-z0-9-]{5,28}[a-z0-9]$
-
-    apis:
+    services:
         type: array
         uniqueItems: true
         items:
@@ -23,17 +18,11 @@ properties:
     billing_account_id:
         type: string
 
-    parent_node:
-        type: object
-        required:
-            - type
-            - id
-        properties:
-            type:
-                type: string
-                enum:
-                    - organization
-                    - folder
-            id:
-                type: [integer, string]
-                pattern: ^[0-9]{8,25}$
+    root_node:
+        type: integer
+
+    dev_node:
+        type: integer
+
+    prd_node:
+        type: integer

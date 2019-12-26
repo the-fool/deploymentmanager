@@ -1,0 +1,12 @@
+imports:
+    - path: ../templates/app.py
+      name: app.py
+
+resources:
+    - name: ww-application-4
+      type: app.py
+      properties:
+        root_node: 411343402598
+        dev_node: 829757414701
+        prd_node: 949214678346
+        billing_account_id: 010FAB-0BB731-1EBA39
