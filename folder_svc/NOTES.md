@@ -1,0 +1,1 @@
+check out https://{{ service }}.googleapis.com/$discovery/rest?version={{ version }}
