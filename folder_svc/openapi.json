@@ -1,0 +1,199 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Endpoints Example",
+    "description": "A simple Google Cloud Endpoints API example.",
+    "version": "1.0.0"
+  },
+  "host": "folder-svc-pwh3e5n4pq-uc.a.run.app",
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "schemes": ["https"],
+  "paths": {
+    "/folders/{id}": {
+      "delete": {
+        "description": "Trigger a folder creation",
+        "operationId": "delete_folders",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Created Folders",
+            "schema": { "$ref": "#/definitions/folderMessage" }
+          }
+        },
+        "parameters": [
+          {
+            "description": "Folders to create",
+            "in": "body",
+            "name": "message",
+            "required": true,
+            "schema": { "$ref": "#/definitions/folderMessage" }
+          }
+        ]
+      },
+      "get": {
+        "description": "Trigger a folder creation",
+        "operationId": "get_folder",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Created Folders",
+            "schema": { "$ref": "#/definitions/folderMessage" }
+          }
+        },
+        "parameters": [
+          {
+            "description": "Folders to create",
+            "in": "body",
+            "name": "message",
+            "required": true,
+            "schema": { "$ref": "#/definitions/folderMessage" }
+          }
+        ]
+      },
+      "put": {
+        "description": "Trigger a folder creation",
+        "operationId": "replace_folders",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Created Folders",
+            "schema": { "$ref": "#/definitions/folderMessage" }
+          }
+        },
+        "parameters": [
+          {
+            "description": "Folders to create",
+            "in": "body",
+            "name": "message",
+            "required": true,
+            "schema": { "$ref": "#/definitions/folderMessage" }
+          }
+        ]
+      }
+    },
+    "/folders": {
+      "get": {
+        "description": "Trigger a folder creation",
+        "operationId": "get_folders",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Created Folders",
+            "schema": { "$ref": "#/definitions/folderMessage" }
+          }
+        },
+        "parameters": [
+          {
+            "description": "Folders to create",
+            "in": "body",
+            "name": "message",
+            "required": true,
+            "schema": { "$ref": "#/definitions/folderMessage" }
+          }
+        ]
+      },
+      "post": {
+        "description": "Trigger a folder creation",
+        "operationId": "create_folders",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Created Folders",
+            "schema": { "$ref": "#/definitions/folderMessage" }
+          }
+        },
+        "parameters": [
+          {
+            "description": "Folders to create",
+            "in": "body",
+            "name": "message",
+            "required": true,
+            "schema": { "$ref": "#/definitions/folderMessage" }
+          }
+        ]
+      }
+    },
+    "/auth/info/googlejwt": {
+      "get": {
+        "description": "Returns the requests' authentication information.",
+        "operationId": "auth_info_google_jwt",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Authentication info.",
+            "schema": { "$ref": "#/definitions/authInfoResponse" }
+          }
+        },
+        "security": [{ "google_jwt": [] }]
+      }
+    },
+    "/auth/info/googleidtoken": {
+      "get": {
+        "description": "Returns the requests' authentication information.",
+        "operationId": "authInfoGoogleIdToken",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Authentication info.",
+            "schema": { "$ref": "#/definitions/authInfoResponse" }
+          }
+        },
+        "security": [{ "google_id_token": [] }]
+      }
+    },
+    "/auth/info/auth0": {
+      "get": {
+        "description": "Returns the requests' authentication information.",
+        "operationId": "auth_info_auth0_jwk",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Authentication info.",
+            "schema": { "$ref": "#/definitions/authInfoResponse" }
+          }
+        },
+        "security": [{ "auth0_jwk": [] }]
+      }
+    }
+  },
+  "definitions": {
+    "folderMessage": {
+      "type": "object",
+      "properties": { "appName": { "type": "string" } }
+    },
+    "authInfoResponse": {
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_key": { "type": "apiKey", "name": "key", "in": "query" },
+    "google_jwt": {
+      "authorizationUrl": "",
+      "flow": "implicit",
+      "type": "oauth2",
+      "x-google-issuer": "jwt-client.endpoints.sample.google.com",
+      "x-google-jwks_uri": "https://www.googleapis.com/service_accounts/v1/jwk/YOUR-SERVICE-ACCOUNT-EMAIL",
+      "x-google-audiences": "echo.endpoints.sample.google.com"
+    },
+    "google_id_token": {
+      "authorizationUrl": "",
+      "flow": "implicit",
+      "type": "oauth2",
+      "x-google-issuer": "https://accounts.google.com",
+      "x-google-jwks_uri": "https://www.googleapis.com/oauth2/v3/certs",
+      "x-google-audiences": "YOUR-CLIENT-ID"
+    },
+    "auth0_jwk": {
+      "authorizationUrl": "https://YOUR-ACCOUNT-NAME.auth0.com/authorize",
+      "flow": "implicit",
+      "type": "oauth2",
+      "x-google-issuer": "https://YOUR-ACCOUNT-NAME.auth0.com/",
+      "x-google-jwks_uri": "https://YOUR-ACCOUNT-NAME.auth0.com/.well-known/jwks.json",
+      "x-google-audiences": "YOUR-CLIENT-ID"
+    }
+  }
+}

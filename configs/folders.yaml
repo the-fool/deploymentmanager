@@ -1,0 +1,5 @@
+resources:
+  - name: new-appy
+    type: premium-modem-261922/folders:/folders
+    properties:
+      appName: foobar

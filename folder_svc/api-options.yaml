@@ -1,0 +1,4 @@
+collectionOverrides:
+  - collection: /folders
+    methodMap:
+      insert: get

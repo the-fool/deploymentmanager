@@ -9,8 +9,8 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", handle)
-	http.HandleFunc("/openapi.yaml", discovery)
+	http.HandleFunc("/folders", handle)
+	http.HandleFunc("/openapi.json", discovery)
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
@@ -39,7 +39,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 }
 
 func discovery(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "openapi.yaml")
+	http.ServeFile(w, r, "openapi.json")
 }
 
 func createFolders() {
