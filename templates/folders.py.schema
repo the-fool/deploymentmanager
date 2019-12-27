@@ -3,26 +3,9 @@ info:
     author: Google, LLC
 
 required:
-    - billing_account_id
     - parent_node
     
 properties:
-    #project_name:
-    #    type: string
-    
-    #project_id:
-    #    type: string
-    #    pattern: ^[a-z][a-z0-9-]{5,28}[a-z0-9]$
-
-    apis:
-        type: array
-        uniqueItems: true
-        items:
-            type: string
-    
-    billing_account_id:
-        type: string
-
     parent_node:
         type: object
         required:

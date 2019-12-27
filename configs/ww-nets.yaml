@@ -1,0 +1,21 @@
+imports:
+  - path: ../templates/network.py
+    name: network.py
+
+resources:
+  - name: ww-net-six
+    type: network.py
+    properties:
+      autoCreateSubnetworks: false
+      subnetworks:
+        - name: test-subnetwork-1
+          region: us-east1
+          ipCidrRange: 172.16.0.0/20
+          privateIpGoogleAccess: false
+          enableFlowLogs: true
+          secondaryIpRanges:
+            - rangeName: my-secondary-range-1
+              ipCidrRange: 172.16.32.0/20
+        - name: test-subnetwork-2
+          region: us-east1
+          ipCidrRange: 192.168.0.0/16

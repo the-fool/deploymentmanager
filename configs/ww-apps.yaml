@@ -3,10 +3,26 @@ imports:
       name: app.py
 
 resources:
-    - name: ww-application-4
+    - name: ww-application-four
       type: app.py
       properties:
         root_node: 411343402598
         dev_node: 829757414701
         prd_node: 949214678346
         billing_account_id: 010FAB-0BB731-1EBA39
+        
+        enabled_services:
+          - compute.googleapis.com
+          - pubsub.googleapis.com
+
+    - name: ww-application-six
+      type: app.py
+      properties:
+        root_node: 956765104184
+        dev_node: 978707652950
+        prd_node: 242759095466
+        billing_account_id: 010FAB-0BB731-1EBA39
+        use_network_project: false
+        enabled_services:
+          - compute.googleapis.com
+          - pubsub.googleapis.com

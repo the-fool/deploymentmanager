@@ -9,7 +9,7 @@ required:
     - prd_node
     
 properties:
-    services:
+    enabled_services:
         type: array
         uniqueItems: true
         items:
@@ -26,3 +26,7 @@ properties:
 
     prd_node:
         type: integer
+
+    use_network_project:
+        type: boolean
+        default: true

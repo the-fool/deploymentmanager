@@ -4,10 +4,8 @@ def generate_config(ctx):
     props = ctx.properties
     app_id = ctx.env['name']
     parent_node = props['parent_node']
-    # Create Root Folder
     root_parent_type = parent_node.get('type')
     root_parent_id = parent_node.get('id')
-    # root_parent = f'{root_parent_type}s/{root_parent_id}'
     root_parent = '{}s/{}'.format(root_parent_type, root_parent_id)
 
     folder_resource = {
