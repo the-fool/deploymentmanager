@@ -1,0 +1,54 @@
+
+info:
+  title: IAM policy member
+
+
+additionalProperties: false
+
+required:
+  - roles
+  - node_id
+  - node_type
+
+properties:
+  node_id:
+    type: integer
+  node_type:
+    enum:
+        - folder
+        - project
+        - organization
+    
+  roles:
+    type: array
+    uniqueItems: true
+    minItems: 1
+    description: |
+      An array of roles and members.
+    items:
+      type: object
+      additionalProperties: false
+      properties:
+        role:
+          type: string
+          description: |
+            The role to grant to members.
+        members:
+          type: array
+          description: |
+            A list of identities.
+          items:
+            type: string
+            description: |
+              Specifies the identity requesting access to a Cloud Platform
+              resource. Can have the following values:
+                - user:{emailid} - An email address that represents a specific
+                  IAM User account. For example, user:name@example.com
+                - serviceAccount:{emailid} - An email address that represents a
+                  Service Account. For example,
+                  serviceAccount:my-other-app@appspot.gserviceaccount.com
+                - group:{emailid} - An email address that represents a Google group.
+                  For example, group:admins@example.com
+                - domain:{domain} - A Cloud Identity or G Suite domain name that
+                  represents all the users of that domain. For example, acme.com
+                  or example.com.

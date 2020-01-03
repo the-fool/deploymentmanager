@@ -36,5 +36,5 @@ properties:
                     - organization
                     - folder
             id:
-                type: [integer, string]
+                type: string
                 pattern: ^[0-9]{8,25}$

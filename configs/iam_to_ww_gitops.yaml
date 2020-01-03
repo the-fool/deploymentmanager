@@ -1,0 +1,15 @@
+imports:
+    - path: ../templates/iam_binding.py
+      name: iam_binding.py
+
+resources:
+    - name: ww-gitops-iam-editors
+      type: iam_binding.py
+      properties:
+        node_id: 82625664387
+        node_type: project
+        roles:
+          - role: roles/editor
+            members:
+                - user:sketchbang@gmail.com
+                - user:andrewgold@google.com

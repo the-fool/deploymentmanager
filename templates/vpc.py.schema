@@ -1,0 +1,24 @@
+info:
+    title: VPC
+    author: Google, LLC
+
+required:
+    - project_id
+    
+properties:
+    project_id:
+        type: string
+        pattern: ^[a-z][a-z0-9-]{5,28}[a-z0-9]$
+
+    subnets:
+        type: array
+        uniqueItems: true
+        items:
+            type: object
+            properties:
+                name:
+                    type: string
+                region:
+                    type: string
+                ipCidrRange:
+                    type: string

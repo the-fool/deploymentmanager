@@ -1,5 +1,6 @@
 import copy
 
+
 def generate_config(ctx):
     props = ctx.properties
     app_id = ctx.env['name']

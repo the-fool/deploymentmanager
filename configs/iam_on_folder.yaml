@@ -1,0 +1,15 @@
+imports:
+    - path: ../templates/iam_binding.py
+      name: iam_binding.py
+
+resources:
+    - name: ww-folder-six
+      type: iam_binding.py
+      properties:
+        node_id: 411343402598
+        node_type: folder
+        roles:
+          - role: roles/editor
+            members:
+                - user:sketchbang@gmail.com
+                - user:andrewgold@google.com

@@ -1,0 +1,16 @@
+imports:
+    - path: ../templates/vpc.py
+      name: vpc.py
+      
+resources:
+    - name: widgetworld-fooo-net
+      type: vpc.py
+      properties:
+        project_id: widgetworld-foooooo
+        subnets:
+            - name: centraly
+              region: us-central1
+              ipCidrRange: 10.0.0.0/16
+            - name: easty
+              region: us-east1
+              ipCidrRange: 10.8.0.0/16
