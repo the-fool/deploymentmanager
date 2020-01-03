@@ -2,7 +2,6 @@
 info:
   title: IAM policy member
 
-
 additionalProperties: false
 
 required:
@@ -13,6 +12,7 @@ required:
 properties:
   node_id:
     type: integer
+
   node_type:
     enum:
         - folder

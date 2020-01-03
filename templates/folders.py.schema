@@ -1,11 +1,18 @@
 info:
-    title: Application
+    title: Folder Layout
     author: Google, LLC
+
 
 required:
     - parent_node
+    - owners
     
 properties:
+    owners:
+        type: array
+        items:
+            type: string
+
     parent_node:
         type: object
         required:

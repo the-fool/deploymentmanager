@@ -1,0 +1,13 @@
+imports:
+    - path: ../templates/folders.py
+      name: folders.py
+
+resources:
+    - name: ww-app-seven
+      type: folders.py
+      properties:
+        owners:
+            - user:sketchbang@gmail.com
+        parent_node: 
+            type: organization
+            id: 279306703376

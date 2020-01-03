@@ -3,26 +3,17 @@ imports:
       name: app.py
 
 resources:
-    - name: ww-application-four
+    - name: ww-application-five
       type: app.py
       properties:
-        root_node: 411343402598
-        dev_node: 829757414701
-        prd_node: 949214678346
+        owners:
+        - sketchbang@gmail.com
+        root_node: 1029401591345
+        dev_node: 761404088872
+        prd_node: 467841586597
         billing_account_id: 010FAB-0BB731-1EBA39
         
         enabled_services:
           - compute.googleapis.com
           - pubsub.googleapis.com
 
-    - name: ww-application-six
-      type: app.py
-      properties:
-        root_node: 956765104184
-        dev_node: 978707652950
-        prd_node: 242759095466
-        billing_account_id: 010FAB-0BB731-1EBA39
-        use_network_project: false
-        enabled_services:
-          - compute.googleapis.com
-          - pubsub.googleapis.com

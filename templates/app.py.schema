@@ -2,6 +2,10 @@ info:
     title: Application
     author: Google, LLC
 
+imports:
+- path: ./iam_binding.py
+  name: iam_binding.py
+
 required:
     - billing_account_id
     - root_node

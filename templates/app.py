@@ -15,8 +15,6 @@ def generate_config(ctx):
     app_id = ctx.env["name"]
 
     props = ctx.properties
-
-    root_node = props["root_node"]
     dev_node = props["dev_node"]
     prd_node = props["prd_node"]
     billing_account_id = props["billing_account_id"]

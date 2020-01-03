@@ -36,4 +36,3 @@ def generate_config(ctx):
     return {
         'resources': resources
     }
-
