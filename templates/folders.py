@@ -52,11 +52,13 @@ def generate_config(ctx):
     resources.append(folder_prod_resource)
 
     roles = [
-        'roles/editor', 
+        'roles/editor',
         'roles/resourcemanager.projectCreator',
         'roles/iam.securityAdmin',
-        'roles/resourcemanager.folderAdmin'
+        'roles/resourcemanager.folderAdmin',
+        'roles/compute.xpnAdmin'
     ]
+
     for role in roles:
         for owner in owners:
             iam_binding = {
