@@ -86,6 +86,8 @@ def make_project_configs(app_id, envs, services, use_network_project):
         "cloudprofiler.googleapis.com",
     ]
 
+    main_services = ["compute.googleapis.com"]
+
     network_services = ["compute.googleapis.com"]
 
     monitoring_services = []
@@ -102,7 +104,7 @@ def make_project_configs(app_id, envs, services, use_network_project):
                 {
                     "id": "{}-{}".format(app_id, env_name),
                     "parent_id": env_node_id,
-                    "services": merge_base(services),
+                    "services": merge_base(main_services),
                     "shared_vpc_service": {
                         "host_project_id": "{}-net-{}".format(app_id, env_name)
                     },

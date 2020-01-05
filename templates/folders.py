@@ -1,6 +1,6 @@
 def generate_config(ctx):
     props = ctx.properties
-    app_id = ctx.env['name']
+    root_node = ctx.env['name']
     parent_node = props['parent_node']
     owners = props['owners']
     root_parent_type = parent_node.get('type')
@@ -10,42 +10,42 @@ def generate_config(ctx):
     resources = []
 
     folder_resource = {
-        'name': app_id,
+        'name': root_node,
         'type': 'gcp-types/cloudresourcemanager-v2:folders',
         'properties': {
             'parent': root_parent,
-            'displayName': app_id
+            'displayName': root_node
         }
     }
 
     resources.append(folder_resource)
 
-    root_id = '$(ref.{}.name)'.format(app_id)
+    root_node_id = '$(ref.{}.name)'.format(root_node)
 
     # Create Env Folders
-    dev_folder = app_id + '-DEV'
+    dev_folder = root_node + '-DEV'
     folder_dev_resource = {
         'name': dev_folder,
         'type': 'gcp-types/cloudresourcemanager-v2:folders',
         'metadata': {
-            'dependsOn': [app_id]
+            'dependsOn': [root_node]
         },
         'properties': {
-            'parent': root_id,
+            'parent': root_node_id,
             'displayName': dev_folder
         }
     }
     resources.append(folder_dev_resource)
 
-    prd_folder = app_id + '-PRD'
+    prd_folder = root_node + '-PRD'
     folder_prod_resource = {
         'name': prd_folder,
         'metadata': {
-            'dependsOn': [app_id]
+            'dependsOn': [root_node]
         },
         'type': 'gcp-types/cloudresourcemanager-v2:folders',
         'properties': {
-            'parent': root_id,
+            'parent': root_node_id,
             'displayName': prd_folder
         }
     }
@@ -62,13 +62,13 @@ def generate_config(ctx):
     for role in roles:
         for owner in owners:
             iam_binding = {
-                'name': '{}-{}'.format(owner, role),
+                'name': '{}-{}-{}'.format(root_node, owner, role),
                 'type': 'gcp-types/cloudresourcemanager-v2:virtual.folders.iamMemberBinding',
                 'metadata': {
-                    'dependsOn': [app_id]
+                    'dependsOn': [root_node]
                 },
                 'properties': {
-                    'resource': '$(ref.{}.name)'.format(app_id),
+                    'resource': '$(ref.{}.name)'.format(root_node),
                     'role': role,
                     'member': owner
                 }
